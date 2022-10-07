@@ -1,0 +1,54 @@
+name: CI
+
+on:
+  push:
+    tags:
+      - "Versions/*"
+  workflow_dispatch:
+
+jobs:
+  build:
+    env:
+      BUILD_CONFIG: 'Release'
+      PROJECT_FILE: 'Tech.Tevux.Dashboards.Controls.WebViewer/Tech.Tevux.Dashboards.Controls.WebViewer.csproj'
+      OUTPUT_FOLDER: 'Tech.Tevux.Dashboards.Controls.WebViewer/bin/Release'
+
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v2
+
+      - name: Read project version
+        id: get_version
+        uses: greenygh0st/net-proj-release-version@v2
+        with:
+          PROJ_FILE: ${{env.PROJECT_FILE}}
+
+      - name: Set project version
+        run: echo "PROJECT_VERSION=${{steps.get_version.outputs.RELEASE_VERSION}}" >> $GITHUB_ENV
+
+      - name: Set tag version
+        run: echo "TAG_VERSION=${GITHUB_REF#refs/tags/Versions/}" >> $GITHUB_ENV
+
+      - name: Compare project and tag version
+        run : |
+          if [ "${{env.PROJECT_VERSION}}" != "${{env.TAG_VERSION}}" ]; then
+            echo "Project version ${{env.PROJECT_VERSION}} doesn't match tag version ${{env.TAG_VERSION}}!"
+            exit 1
+          fi
+      - name: Setup dotnet
+        uses: actions/setup-dotnet@v1
+        with:
+          dotnet-version: '6.0.x'
+          
+      - name: Restore
+        run: dotnet restore
+
+      - name: Build
+        run: dotnet build --configuration ${{env.BUILD_CONFIG}} ${{env.PROJECT_FILE}} --no-restore
+
+      - name: Pack
+        run: dotnet pack --configuration ${{env.BUILD_CONFIG}} --no-build 
+
+      - name: Publish to Nuget.org
+        run: nuget push **\*.nupkg -Source 'https://api.nuget.org/v3/index.json' -ApiKey ${{secrets.NUGET_API_KEY}}
