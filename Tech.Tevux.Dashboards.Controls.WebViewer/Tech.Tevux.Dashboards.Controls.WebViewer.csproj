@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWPF>true</UseWPF>
+    <RootNamespace>Tech.Tevux.Dashboards.BaseControls</RootNamespace>
+    <OutputType>Exe</OutputType>
+    <Version>0.19.0</Version>
+    <Company>Tevux Technologies, MB</Company>
+    <Copyright>© 2022 Tevux Technologies, MB</Copyright>
+    <Title>Web browser control for Tevux Dashboards</Title>
+    <Authors>DevBot9</Authors>
+    <Description>Allows to show any website in Tevux Dashboards.</Description>
+    <RepositoryUrl>https://www.github.com/tevux-tech/tech-tevux-dashboards-controls-webviewer</RepositoryUrl>
+    <PackageProjectUrl>https://www.github.com/tevux-tech/tech-tevux-dashboards-controls-webviewer</PackageProjectUrl>
+    <NuspecFile>Tech.Tevux.Dashboards.Controls.WebViewer.nuspec</NuspecFile>
+    <NuspecProperties>
+      version=$(Version);
+      id=$(AssemblyName);
+      copyright=$(Copyright);
+      title=$(Title);
+      authors=$(Authors);
+      description=$(Description)
+    </NuspecProperties>
+    <EnableWindowsTargeting>true</EnableWindowsTargeting>
+    <!--Configuring source Link-->
+    <PublishRepositoryUrl>true</PublishRepositoryUrl>
+    <EmbedUntrackedSources>true</EmbedUntrackedSources>
+    <DebugType>embedded</DebugType>
+    <!-- End -->
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
+    <!--This enables "deterministic builds"-->
+    <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.90" />
+    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.20.0-preview.1" />
+    <PackageReference Include="Tevux.Dashboards.Abstractions" Version="0.39.0-preview.1">
+      <ExcludeAssets>runtime</ExcludeAssets>
+    </PackageReference>
+    <PackageReference Include="Tevux.Software.Helpers" Version="0.18.0" />
+    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.1.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="Themes\Generic.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Themes\WebViewer.xaml">
+      <XamlRuntime>$(DefaultXamlRuntime)</XamlRuntime>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+
+  <!--Tevux related settings-->
+  <PropertyGroup>
+    <EnableDynamicLoading>true</EnableDynamicLoading>
+    <SatelliteResourceLanguages>en</SatelliteResourceLanguages>
+
+    <!--not sure if I still need this?-->
+    <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <AssemblyAttribute Include="Tevux.Dashboards.Abstractions.AssemblyLoadContextAttribute">
+      <ContextName>Tech.Tevux.Dashboards.Controls.WebViewer</ContextName>
+      <ContextFriendlyName>WebViewer</ContextFriendlyName>
+    </AssemblyAttribute>
+  </ItemGroup>
+
+</Project>

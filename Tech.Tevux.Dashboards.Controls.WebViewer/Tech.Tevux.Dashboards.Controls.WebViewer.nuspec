@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package>
+	<metadata>
+		<id>$id$</id>
+		<version>$version$</version>
+		<title>$title$</title>
+		<authors>$authors$</authors>
+		<copyright>$copyright$</copyright>
+		<license type="expression">MIT</license>
+		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<tags>tevux.dashboards.library</tags>
+		<description>$description$</description>
+		<frameworkReferences>
+			<group targetFramework="net6.0-windows7.0">
+				<frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
+			</group>
+		</frameworkReferences>
+	</metadata>
+	<files>
+		<file src="bin\Release\net6.0-windows\**" target="lib\net6.0" exclude="**\*.exe" />
+	</files>
+</package>
