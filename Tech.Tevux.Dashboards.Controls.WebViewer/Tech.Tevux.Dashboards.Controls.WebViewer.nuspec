@@ -6,10 +6,12 @@
 		<title>$title$</title>
 		<authors>$authors$</authors>
 		<copyright>$copyright$</copyright>
+		<description>$description$</description>
 		<license type="expression">MIT</license>
 		<requireLicenseAcceptance>true</requireLicenseAcceptance>
+		<repository type="git" url="$repository$" />
+		<projectUrl>$projectUrl$</projectUrl>
 		<tags>tevux.dashboards.library</tags>
-		<description>$description$</description>
 		<frameworkReferences>
 			<group targetFramework="net6.0-windows7.0">
 				<frameworkReference name="Microsoft.WindowsDesktop.App.WPF" />
