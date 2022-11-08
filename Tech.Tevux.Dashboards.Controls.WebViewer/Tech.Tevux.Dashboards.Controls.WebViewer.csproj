@@ -31,8 +31,8 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.90" />
-    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.22.0" />
-    <PackageReference Include="Tevux.Dashboards.Abstractions" Version="0.40.0">
+    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.23.0-preview.4" />
+    <PackageReference Include="Tevux.Dashboards.Abstractions" Version="0.41.0-preview.4">
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
     <PackageReference Include="Tevux.Software.Helpers" Version="0.18.0" />
