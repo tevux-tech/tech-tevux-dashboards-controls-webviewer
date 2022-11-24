@@ -4,31 +4,23 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
-    <RootNamespace>Tech.Tevux.Dashboards.BaseControls</RootNamespace>
     <OutputType>Exe</OutputType>
-    <Version>0.19.0</Version>
-    <Company>Tevux Technologies, MB</Company>
-    <Copyright>© 2022 Tevux Technologies, MB</Copyright>
+    <Version>0.21.0</Version>
+    <Company>Tevux Technologies</Company>
+    <Copyright>© 2022 Tevux Technologies</Copyright>
     <Title>Web browser control for Tevux Dashboards</Title>
-    <Authors>DevBot9</Authors>
+    <Authors>devbotas</Authors>
     <Description>Allows to show any website in Tevux Dashboards.</Description>
-    <RepositoryUrl>https://www.github.com/tevux-tech/tech-tevux-dashboards-controls-webviewer</RepositoryUrl>
-    <PackageProjectUrl>https://www.github.com/tevux-tech/tech-tevux-dashboards-controls-webviewer</PackageProjectUrl>
-    <NuspecFile>Tech.Tevux.Dashboards.Controls.WebViewer.nuspec</NuspecFile>
-    <NuspecProperties>
-      version=$(Version);
-      id=$(AssemblyName);
-      copyright=$(Copyright);
-      title=$(Title);
-      authors=$(Authors);
-      description=$(Description)
-    </NuspecProperties>
+    <RepositoryUrl>https://github.com/tevux-tech/tech-tevux-dashboards-controls-webviewer</RepositoryUrl>
+    <PackageProjectUrl>https://github.com/tevux-tech/tech-tevux-dashboards-controls-webviewer</PackageProjectUrl>
+
     <EnableWindowsTargeting>true</EnableWindowsTargeting>
+
     <!--Configuring source Link-->
     <PublishRepositoryUrl>true</PublishRepositoryUrl>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <DebugType>embedded</DebugType>
-    <!-- End -->
+    <!--End-->
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
@@ -39,12 +31,12 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.90" />
-    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.20.0-preview.1" />
-    <PackageReference Include="Tevux.Dashboards.Abstractions" Version="0.39.0-preview.1">
+    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.23.0-preview.4" />
+    <PackageReference Include="Tevux.Dashboards.Abstractions" Version="0.41.0-preview.4">
       <ExcludeAssets>runtime</ExcludeAssets>
     </PackageReference>
     <PackageReference Include="Tevux.Software.Helpers" Version="0.18.0" />
-    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.1.0">
+    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.4.4">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
