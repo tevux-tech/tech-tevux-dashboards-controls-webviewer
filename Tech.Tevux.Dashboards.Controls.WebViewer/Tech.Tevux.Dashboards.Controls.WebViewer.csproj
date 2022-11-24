@@ -5,7 +5,7 @@
 		<Nullable>enable</Nullable>
 		<UseWPF>true</UseWPF>
 		<OutputType>Exe</OutputType>
-		<Version>0.21.0-preview.1</Version>
+		<Version>0.21.0-preview.2</Version>
 		<Company>Tevux Technologies</Company>
 		<Copyright>© 2022 Tevux Technologies</Copyright>
 		<Title>Web browser control for Tevux Dashboards</Title>

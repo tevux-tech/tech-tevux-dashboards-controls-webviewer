@@ -26,6 +26,6 @@
 	<files>
 		<file src="Resources\tevux-logo-symbol.png" target="images\" />
 		<file src="..\README.md" target="\" />
-		<file src="bin\Publish\**" target="lib\net6.0" exclude="**\*.exe" />
+		<file src="bin\Publish\**" target="lib\net6.0" />
 	</files>
 </package>
