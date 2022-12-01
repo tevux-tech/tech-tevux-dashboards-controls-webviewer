@@ -8,5 +8,6 @@
             "Url":"https://api.nuget.org/v3/index.json",
             "ApiKeyName":"NUGET_API_KEY"
         }
-    }
+    },
+    "NuspecType": "ControlLibrary"
 }
