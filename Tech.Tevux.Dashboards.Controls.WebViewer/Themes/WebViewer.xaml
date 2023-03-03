@@ -2,39 +2,12 @@
                     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" xmlns:local="clr-namespace:Tech.Tevux.Dashboards.Controls" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                     mc:Ignorable="d"
                     >
-    <Style x:Key="MyViewboxStyle" TargetType="Viewbox">
-        <!--  Need to find a way to share this between controls...  -->
-        <Style.Triggers>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Alignment}" Value="Left">
-                <Setter Property="HorizontalAlignment" Value="Left" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Alignment}" Value="Top">
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="VerticalAlignment" Value="Top" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Alignment}" Value="Right">
-                <Setter Property="HorizontalAlignment" Value="Right" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Alignment}" Value="Bottom">
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="VerticalAlignment" Value="Bottom" />
-            </DataTrigger>
-            <DataTrigger Binding="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Alignment}" Value="Middle">
-                <Setter Property="HorizontalAlignment" Value="Center" />
-                <Setter Property="VerticalAlignment" Value="Center" />
-            </DataTrigger>
-        </Style.Triggers>
-        <Setter Property="Stretch" Value="Uniform" />
-        <Setter Property="StretchDirection" Value="DownOnly" />
-    </Style>
     <Style TargetType="{x:Type local:WebViewer}">
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:WebViewer}">
                     <Grid>
-                        <Viewbox Panel.ZIndex="1" Style="{StaticResource MyViewboxStyle}">
+                        <Viewbox Panel.ZIndex="1" Style="{DynamicResource MyViewboxStyle}">
                             <TextBlock FontSize="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=TextSize}" Text="{Binding RelativeSource={RelativeSource Mode=TemplatedParent}, Path=Caption}" />
                         </Viewbox>
                         <Grid x:Name="PART_MainGrid" />
