@@ -6,7 +6,7 @@
     <NoWarn>CS1591</NoWarn>
     <UseWPF>true</UseWPF>
     <OutputType>Library</OutputType>
-    <Version>0.21.0-preview.8</Version>
+    <Version>0.21.0-preview.9</Version>
     <Company>Tevux Technologies</Company>
     <Copyright>© 2022 Tevux Technologies</Copyright>
     <Title>Web browser control for Tevux Dashboards</Title>
@@ -39,7 +39,7 @@
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.90">
 
     </PackageReference>
-    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.23.0-preview.35" />
+    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.23.0-preview.34" />
     <PackageReference Include="Tevux.Software.Helpers" Version="0.18.0" />
     <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.5.1">
       <PrivateAssets>all</PrivateAssets>
