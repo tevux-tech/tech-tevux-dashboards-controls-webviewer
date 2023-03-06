@@ -3,9 +3,10 @@
   <PropertyGroup>
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
+    <NoWarn>CS1591</NoWarn>
     <UseWPF>true</UseWPF>
-    <OutputType>Exe</OutputType>
-    <Version>0.21.0</Version>
+    <OutputType>Library</OutputType>
+    <Version>0.21.0-preview.10</Version>
     <Company>Tevux Technologies</Company>
     <Copyright>© 2022 Tevux Technologies</Copyright>
     <Title>Web browser control for Tevux Dashboards</Title>
@@ -21,22 +22,26 @@
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <DebugType>embedded</DebugType>
     <!--End-->
+
+    <GenerateDocumentationFile>True</GenerateDocumentationFile>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
     <!--This enables "deterministic builds"-->
     <ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
   </PropertyGroup>
-
+  <ItemGroup>
+    <None Include="..\README.md" Pack="True" PackagePath="\" />
+    <None Include="Resources\tevux-logo-symbol.png" Pack="True" PackagePath="\" />
+  </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1" PrivateAssets="All" />
-    <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.90" />
-    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.23.0-preview.4" />
-    <PackageReference Include="Tevux.Dashboards.Abstractions" Version="0.41.0-preview.4">
-      <ExcludeAssets>runtime</ExcludeAssets>
+    <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.90">
+
     </PackageReference>
+    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.23.0-preview.35" />
     <PackageReference Include="Tevux.Software.Helpers" Version="0.18.0" />
-    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.4.4">
+    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.5.1">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
@@ -64,8 +69,7 @@
 
   <ItemGroup>
     <AssemblyAttribute Include="Tevux.Dashboards.Abstractions.AssemblyLoadContextAttribute">
-      <ContextName>Tech.Tevux.Dashboards.Controls.WebViewer</ContextName>
-      <ContextFriendlyName>WebViewer</ContextFriendlyName>
+      <FriendlyName>WebViewer</FriendlyName>
     </AssemblyAttribute>
   </ItemGroup>
 

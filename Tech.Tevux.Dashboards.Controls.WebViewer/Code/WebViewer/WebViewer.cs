@@ -8,7 +8,7 @@ namespace Tech.Tevux.Dashboards.Controls;
 [DashboardControl]
 [TemplatePart(Name = "PART_MainGrid", Type = typeof(Grid))]
 public partial class WebViewer : ControlBase {
-    private bool _isDisposed = false;
+    private bool _isDisposed;
     private bool _isTaskRunning = true;
     private readonly CancellationTokenSource _globalCts = new();
     internal ChromiumWebBrowser? Browser { get; private set; }
@@ -44,8 +44,7 @@ public partial class WebViewer : ControlBase {
 
                     try {
                         Browser.ReloadCommand.Execute(null);
-                    }
-                    catch (Exception) {
+                    } catch (Exception) {
                         // Swallowing.                        
                     }
                 }
@@ -71,5 +70,7 @@ public partial class WebViewer : ControlBase {
             Browser = null;
             _isDisposed = true;
         }
+
+        base.Dispose(isCalledManually);
     }
 }
