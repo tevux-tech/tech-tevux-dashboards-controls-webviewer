@@ -7,7 +7,7 @@ public partial class WebViewer {
         typeof(WebViewer),
         new PropertyMetadata(60m));
 
-    [ExposedOption(OptionType.Number)]
+    [ExposedNumber]
     [Category(OptionCategory.Main)]
     public decimal RefreshPeriod {
         get { return (decimal)GetValue(RefreshPeriodProperty); }

@@ -1,3 +1,4 @@
+using System.Diagnostics.CodeAnalysis;
 using System.Threading.Tasks;
 using System.Windows.Controls;
 using CefSharp;
@@ -5,11 +6,11 @@ using CefSharp.Wpf;
 
 namespace Tech.Tevux.Dashboards.Controls;
 
-[DashboardControl]
 [TemplatePart(Name = "PART_MainGrid", Type = typeof(Grid))]
 public partial class WebViewer : ControlBase {
     private bool _isDisposed;
     private bool _isTaskRunning = true;
+    [SuppressMessage("Usage", "CA2213:Disposable fields should be disposed", Justification = "https://stackoverflow.com/questions/6960520/when-to-dispose-cancellationtokensource")] 
     private readonly CancellationTokenSource _globalCts = new();
     internal ChromiumWebBrowser? Browser { get; private set; }
 
