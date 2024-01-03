@@ -1,12 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
-    <NoWarn>CS1591</NoWarn>
+    <NoWarn>CS1591;CA1031</NoWarn>
     <UseWPF>true</UseWPF>
     <OutputType>Library</OutputType>
-    <Version>0.25.0-preview.2</Version>
+    <Version>0.25.0</Version>
     <Company>Tevux Technologies</Company>
     <Copyright>© 2022 Tevux Technologies</Copyright>
     <Title>Web browser control for Tevux Dashboards</Title>
@@ -24,6 +24,8 @@
     <!--End-->
 
     <GenerateDocumentationFile>True</GenerateDocumentationFile>
+
+    <LangVersion>12</LangVersion>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(GITHUB_ACTIONS)' == 'true'">
@@ -39,12 +41,15 @@
     <PackageReference Include="CefSharp.Wpf.NETCore" Version="102.0.90">
 
     </PackageReference>
-    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="0.23.0-preview.35" />
+    <PackageReference Include="Tech.Tevux.Dashboards.Controls.Base" Version="1.0.0-preview.14" />
     <PackageReference Include="Tevux.Software.Helpers" Version="0.18.0" />
-    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.5.1">
+    <PackageReference Include="Tevux.Tools.RepositorySettings" Version="1.8.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x64" Version="120.1.10" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-x86" Version="120.1.10" />
+    <PackageReference Update="chromiumembeddedframework.runtime.win-arm64" Version="120.1.10" />
   </ItemGroup>
 
   <ItemGroup>
@@ -66,11 +71,4 @@
     <!--not sure if I still need this?-->
     <CefSharpAnyCpuSupport>true</CefSharpAnyCpuSupport>
   </PropertyGroup>
-
-  <ItemGroup>
-    <AssemblyAttribute Include="Tevux.Dashboards.Abstractions.AssemblyLoadContextAttribute">
-      <FriendlyName>WebViewer</FriendlyName>
-    </AssemblyAttribute>
-  </ItemGroup>
-
 </Project>

@@ -13,7 +13,7 @@ public partial class WebViewer {
             }
         }));
 
-    [ExposedOption(OptionType.SingleLineText)]
+    [ExposedSingleLineText]
     [Category(OptionCategory.Main)]
     public string Url {
         get { return (string)GetValue(UrlProperty); }
